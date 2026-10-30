@@ -16,6 +16,7 @@ import Footer from "../components/Footer.astro";
     <body class = "bg-2">
         <div id="content" hx-get="/home" hx-trigger="load" hx-swap="outerHTML" class="transition">
             <Navbar current="Home"/>
+            <div style="height: 100vb;"/>
         </div>
         <Footer/>
     </body>
