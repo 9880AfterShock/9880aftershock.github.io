@@ -8,5 +8,7 @@ export default defineConfig({
   vite: {
       plugins: [tailwindcss()],
   },
-  integrations: [htmx()]
+  integrations: [htmx()],
+  site: "https://9880aftershock.github.io",
+  base: "/aftershock",
 });
