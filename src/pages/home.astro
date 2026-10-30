@@ -1,9 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
-import text_logo from "../assets/logo_text.avif";
+import text_logo from "../assets/logo_text.png";
 import { Image } from 'astro:assets';
 import Navbar from '../components/Navbar.astro';
-import { undefined } from 'astro:schema';
 const images = await getCollection('home_carousel_images');
 const events = await getCollection('events');
 const event_photos = await getCollection('event_photos');
@@ -11,7 +10,7 @@ const event_photos = await getCollection('event_photos');
 <div id="content" class="fs-lg">
     <Navbar current="Home"/>
     <div class="transition">
-        <div class="d-flex justify-items-center justify-content-center z-toast" style="margin-bottom: -2rem; margin-top: -1.5rem;"><Image src = {text_logo} alt ="test"/></div>
+        <div class="d-flex justify-items-center justify-content-center z-toast"><Image src = {text_logo} alt ="test" style="width: 70%; height: auto;"/></div>
         <div id="carouselMultiple" class="carousel slide" data-bs-ends="stop" style=" --carousel-items-gap: 0rem">
           <div class="d-flex justify-items-center justify-content-center place-items-center">
               <button class="btn-text fg-2 z-toast" type="button" data-bs-target="#carouselMultiple" data-bs-slide="prev" style="--bs-carousel-control-icon-width: 1rem; margin-right: 1rem; height: 15rem; width: 3rem;">

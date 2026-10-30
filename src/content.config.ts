@@ -7,7 +7,7 @@ import { imageLoader, ImageLoaderBaseSchema } from '@xsynaptic/astro-image-loade
 
 import path from "node:path";
 
-import { glob } from "astro/loaders";
+import { file, glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 const events = defineCollection({
@@ -24,6 +24,10 @@ const events = defineCollection({
     image: reference("event_images")
   }),
 });
+
+const years = defineCollection({
+  loader: file("./src/highlights/highlight_years.json", { parser: (text) => JSON.parse(text) })
+})
 
 export const collections = {
   home_carousel_images: defineCollection({
@@ -50,5 +54,26 @@ export const collections = {
         image: image(),
       }),
   }),
-  events: events
+  highlight_photos: defineCollection({
+    loader: imageLoader({
+      base: "src/assets/highlight_photos",
+      dataHandler: ({ filePath }) => ({
+        image: `./${path.basename(filePath)}`,
+      }),
+    }),
+    schema: ({ image }) =>
+      ImageLoaderBaseSchema.extend({
+        image: image(),
+      }),
+  }),
+  events: events,
+  highlights: defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/highlights" }),
+    schema: z.object({
+      title: z.string(),
+      year: z.string(),
+      photo: reference("highlight_photos")
+    })
+  }),
+  years: years
 }
