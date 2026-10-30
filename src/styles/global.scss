@@ -69,8 +69,8 @@ dialog:not([open]) {
   display: none;
 }
 
-// .carousel-inner {
-//   overflow: hidden;
-//   padding: 1rem;
-//   margin: -1rem;
-// }
+.carousel-inner {
+  overflow: hidden;
+  padding: 5rem;
+  margin: -5rem;
+}
