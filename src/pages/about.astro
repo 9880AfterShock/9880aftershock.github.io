@@ -9,27 +9,61 @@ import Logo from "../assets/logo.svg";
 ---
 <div id="content">
     <Navbar current="About"/>
-    <div class="transition fg-1">
-        <div class="bg-1 d-flex justify-items-end align-items-center place-items-center rounded-start-pill" style="margin: 4rem; margin-right: 0rem; height: 24rem;">
-            <div class="d-flex flex-column p-5" style="margin-left: 8rem;">
-                <h3>What is FTC?</h3>
-                <span>The FIRST Tech Challenge (FTC) allows students in grades 7-12 to think like engineers. Teams design, build, and program robots to compete against each other in an alliance format. These robots are constructed from reusable materials, powered by Android technology, and can be programmed using various levels of Java-based coding. FTC is one of three FIRST programs, which together give students from pre-kindergarten through 12th grade valuable learning opportunities. To learn more about FIRST programs, find teams near you, and discover how to get involved, visit <a class="fg-1" href="https://www.firstinspires.org/">the first website</a>.</span>
+    <div class="transition fg-1 fs-lg">
+        <div class="desktop">
+            <div class="bg-1 d-flex justify-items-end align-items-center place-items-center rounded-start-pill" style="margin: 4rem; margin-right: 0rem; height: 24rem;">
+                <div class="d-flex flex-column p-5" style="margin-left: 8rem;">
+                    <h3 class="fs-3xl">What is FTC?</h3>
+                    <span>The FIRST Tech Challenge (FTC) allows students in grades 7-12 to think like engineers. Teams design, build, and program robots to compete against each other in an alliance format. These robots are constructed from reusable materials, powered by Android technology, and can be programmed using various levels of Java-based coding. FTC is one of three FIRST programs, which together give students from pre-kindergarten through 12th grade valuable learning opportunities. To learn more about FIRST programs, find teams near you, and discover how to get involved, visit <a class="fg-1" href="https://www.firstinspires.org/">the first website</a>.</span>
+                </div>
+                <div class="d-flex flex-column bg-3 rounded-start-pill a-bit-too-small" style="padding: 5rem; height: 24rem;">
+                    <Image src={FtcLogo} alt="the ftc logo"/>
+                </div>
+                <Image src={Flag} alt="Go aftershock!" style=" height: 24rem;"/>
             </div>
-            <div class="d-flex flex-column bg-3 rounded-start-pill" style="padding: 5rem; height: 24rem;">
-                <Image src={FtcLogo} alt="the ftc logo"/>
+            <div class="bg-1 d-flex justify-items-end align-items-center place-items-center rounded-end-pill" style="margin: 4rem; margin-left: 0rem;  height: 24rem;">
+                <Image src={Gang} alt="Go aftershock!" class="ratio-auto our-values-bubble" style="height: 24rem; width: auto; object-fit: contain;"/>
+                <Logo class="d-flex flex-column bg-3 rounded-end-pill little-too-small" style="padding: 2rem; height: 24rem; width: 24rem;"/>
+                <div class="d-flex flex-column p-5" style="margin-right: 8rem; margin-left: 1rem;">
+                    <h3 class="fs-3xl">Our Values</h3>
+                    <span>Many teams in FTC have values core to the team, we are not an exception. Our values sum up to these three things.</span>
+                    <div class = "hstack gap-3" style="margin-top: 1rem;">
+                        <div class="card fg-1 hover-lift" style="width: 18rem; background-color:oklch(0.5861 0.1203 246.27); border-color: white; border-width: 3px;">
+                            <div class="card-body">
+                                <h3 class="card-title">Engagement</h3>
+                                <p class="card-text">We strive to motivate the community to engage with FIRST and STEM. We do this through community outreach.</p>
+                              </div>
+                        </div>
+                        <div class="card fg-1 hover-lift" style="width: 18rem; background-color:oklch(0.5861 0.1203 246.27); border-color: white; border-width: 3px;">
+                            <div class="card-body">
+                                <h3 class="card-title">Growth</h3>
+                                <p class="card-text">We strive to learn new skills and to implement them. We focus on teaching the young members of our team and community.</p>
+                              </div>
+                        </div>
+                        <div class="card fg-1 hover-lift" style="width: 18rem; background-color:oklch(0.5861 0.1203 246.27); border-color: white; border-width: 3px;">
+                            <div class="card-body">
+                                <h3 class="card-title">Collaboration</h3>
+                                <p class="card-text">We strive to collaborate with each other, other teams, and the community to produce a powerful learning environment.</p>
+                              </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <Image src={Flag} alt="Go aftershock!" style=" height: 24rem;"/>
         </div>
-        <div class="bg-1 d-flex justify-items-end align-items-center place-items-center rounded-end-pill" style="margin: 4rem; margin-left: 0rem;  height: 24rem;">
-            <Image src={Gang} alt="Go aftershock!" class="ratio-auto" style="height: 24rem; width: auto; object-fit: contain;"/>
-            <Logo class="d-flex flex-column bg-3 rounded-end-pill" style="padding: 2rem; height: 24rem; width: 24rem;"/>
-            <div class="d-flex flex-column p-5" style="margin-right: 8rem; margin-left: 1rem;">
+        <div class="mobile">
+            <div class="bg-1" style="margin-top: 3rem; margin-bottom: 3rem;">
+                    <h3>What is FTC?</h3>
+                    <span>The FIRST Tech Challenge (FTC) allows students in grades 7-12 to think like engineers. Teams design, build, and program robots to compete against each other in an alliance format. These robots are constructed from reusable materials, powered by Android technology, and can be programmed using various levels of Java-based coding. FTC is one of three FIRST programs, which together give students from pre-kindergarten through 12th grade valuable learning opportunities. To learn more about FIRST programs, find teams near you, and discover how to get involved, visit <a class="fg-1" href="https://www.firstinspires.org/">the first website</a>.</span>
+                <Image src={Flag} alt="Go aftershock!" style=" width: 100%; height: auto;"/>
+            </div>
+
+            <div class="bg-1" style="margin-top: 3rem; margin-bottom: 3rem;">
                 <h3>Our Values</h3>
                 <span>Many teams in FTC have values core to the team, we are not an exception. Our values sum up to these three things.</span>
-                <div class = "hstack gap-3" style="margin-top: 1rem;">
+                <div class = "d-flex gap-3 align-items-center dynamic-flex" style="margin-top: 1rem; margin-bottom: 1rem;">
                     <div class="card fg-1 hover-lift" style="width: 18rem; background-color:oklch(0.5861 0.1203 246.27); border-color: white; border-width: 3px;">
                         <div class="card-body">
-                            <h3 class="card-title">Engagement</h3>
+                            <h3 class="card-title ">Engagement</h3>
                             <p class="card-text">We strive to motivate the community to engage with FIRST and STEM. We do this through community outreach.</p>
                           </div>
                     </div>
@@ -46,6 +80,7 @@ import Logo from "../assets/logo.svg";
                           </div>
                     </div>
                 </div>
+                <Image src={Gang} alt="Go aftershock!" class="ratio-auto" style="width: 100%; height: auto;"/>
             </div>
         </div>
     </div>

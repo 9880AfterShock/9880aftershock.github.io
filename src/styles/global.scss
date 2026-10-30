@@ -30,6 +30,7 @@ html,
 body {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* old Edge/IE */
+  overflow-x: hidden;
 }
 
 html::-webkit-scrollbar,
@@ -50,12 +51,55 @@ body::-webkit-scrollbar {
   }
 }
 
+
+.little-too-small {
+    @media (max-width: 1830px) {
+      display: none;
+    }
+}
+
+.a-bit-too-small {
+    @media (max-width: 1766px) {
+      display: none;
+    }
+}
+
+.our-values-bubble {
+    @media (max-width: 1510px) {
+        display: none;
+    }
+}
+
+.desktop {
+    @media (max-width: 1380px) {
+      display: none;
+    }
+}
+
+.mobile {
+    @media (min-width: 1381px) {
+      display: none;
+    }
+}
+
 .meet-team {
   width: 30%;
 
   @media (max-width: 800px) {
     width: 100%;
   }
+}
+
+.dynamic-flex {
+    @media (max-width: 652px) {
+      flex-direction: column;
+    }
+}
+
+.dynamic-flex-socials {
+    @media (max-width: 562px) {
+      flex-direction: column;
+    }
 }
 
 .footer-stuff {
