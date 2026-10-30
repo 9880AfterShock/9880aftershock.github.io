@@ -3,7 +3,10 @@ import { getCollection } from 'astro:content';
 import text_logo from "../assets/logo_text.avif";
 import { Image } from 'astro:assets';
 import Navbar from '../components/Navbar.astro';
+import { undefined } from 'astro:schema';
 const images = await getCollection('home_carousel_images');
+const events = await getCollection('events');
+const event_photos = await getCollection('event_photos');
 ---
 <div id="content">
     <Navbar current="Home"/>
@@ -15,9 +18,9 @@ const images = await getCollection('home_carousel_images');
                 <span class="carousel-icon-prev" aria-hidden="true"></span>
                 <span class="visually-hidden fg-2">Previous</span>
               </button>
-              <div class="carousel-inner justify-items-center justify-content-center place-items-center">
+              <div class="carousel-inner">
                   {images.map((image, index) => (
-                    <button data-bs-toggle="dialog" data-bs-target={"#" + image.id} type="button" class:list={["carousel-item bg-2", {active: index === 0}]} style="padding-bottom: 3rem; padding: 1rem; border-width: 0;"><Image src={image.data.image} alt="" class="hover-lift w-100 rounded-5" style="aspect-ratio: 1/1; object-fit: cover; height: 100%;"/></button>
+                    <button data-bs-toggle="dialog" data-bs-target={"#" + image.id} type="button" class:list={["carousel-item bg-2", {active: index === 0}]} style="padding-bottom: 3rem; padding: 1rem; border-width: 0;"><Image src={image.data.image} alt="" class="hover-lift w-100 rounded-5" style="aspect-ratio: 1/1; object-fit: cover; height:100%;"/></button>
                   ))}
               </div>
               <button class="btn-text fg-2 z-toast" type="button" data-bs-target="#carouselMultiple" data-bs-slide="next" style="--bs-carousel-control-icon-width: 1rem; margin-left: 1rem; height: 15rem;  width: 3rem;">
@@ -49,43 +52,25 @@ const images = await getCollection('home_carousel_images');
             </div>
           </dialog>
         ))}
-        <div class="row row-cols-1 md:row-cols-3 g-4">
-          <div class="col">
-            <div class="card">
-              <img src="src/assets/home_carousel/Demonstration.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <div class="bg-1 d-flex place-items-center" style="height: 10rem; margin-top: 2rem; margin-bottom: 2rem;">
+            <h1 class="fg-1 fs-6xl" style="margin-left: 5%; margin-right: 5%;">Upcoming Events</h1>
+        </div>
+        <div class="row row-cols-1 md:row-cols-3 g-4" style="margin-left: 5%; margin-right: 5%;">
+            {events.map(event => (
+              <div class="col">
+                <div class="card">
+                    <Image src={event_photos.find(image => image.id === event.data.image.id)?.data.image} class="card-img-top" alt={event.data.alt} style="aspect-ratio: 1/1; object-fit: cover; height: 100%;"/>
+                <div class="card-body">
+                    <h4 class="card-title fg-1">{event.data.title}</h4>
+                    <small class="fg-1 fs-xs" style="margin-top: -0.5rem;">{event.data.time}</small>
+                    <p class="card-text fg-1">{event.data.description}</p>
+                </div>
+                <div class="card-footer">
+                    {event.data.button && <a href={event.data.button.url} class="btn fs-lg fg-2" type="button" style="width: fit-content;">{event.data.button.text}</a> }
+                </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="src/assets/home_carousel/Demonstration.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="src/assets/home_carousel/Demonstration.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="src/assets/home_carousel/Demonstration.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-          </div>
+            ))}
         </div>
         <div style="height: 3rem;"/>
     </div>

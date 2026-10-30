@@ -2,7 +2,7 @@
 :root {
     --bg-1: #08619c;
     --bg-body: #08619c;
-    --border-width: 0;
+    --border-width: 1;
     --bg-2: #9ECAE1;
     --bg-3: #FFFFFF;
     --fg-3: rgb(208,242,244);
@@ -69,8 +69,8 @@ dialog:not([open]) {
   display: none;
 }
 
-.carousel-inner {
-  overflow: hidden;
-  padding: 1rem;
-  margin: -1rem;
-}
+// .carousel-inner {
+//   overflow: hidden;
+//   padding: 1rem;
+//   margin: -1rem;
+// }
