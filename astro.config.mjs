@@ -10,5 +10,5 @@ export default defineConfig({
   },
   integrations: [htmx()],
   site: "https://9880aftershock.github.io",
-  base: "/aftershock",
+  base: "/official-website",
 });
