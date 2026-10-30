@@ -1,0 +1,76 @@
+@use "bootstrap/scss/bootstrap";
+:root {
+    --bg-1: #08619c;
+    --bg-body: #08619c;
+    --border-width: 0;
+    --bg-2: #9ECAE1;
+    --bg-3: #FFFFFF;
+    --fg-3: rgb(208,242,244);
+    --fg-1: rgb(255,255,255);
+    --fg-2: rgb(0,0,0);
+    --bs-body-font-family: Work Sans,sans-serif;
+}
+
+.transition {
+    opacity: 1;
+    transition: all ease-in 0.3s ;
+}
+#content.htmx-swapping .transition {
+    opacity: 0;
+}
+
+.fs-xl {
+    font-family: Work Sans,sans-serif;
+    font-size: 1.575em;
+    // text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+html,
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* old Edge/IE */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.btn-outline:hover {
+    color: var(--fg-2);
+}
+
+
+#carouselMultiple {
+  --carousel-items: 3;
+
+  @media (max-width: 800px) {
+    --carousel-items: 1;
+  }
+}
+
+.meet-team {
+  width: 30%;
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+}
+
+.footer-stuff {
+    margin-left: 5rem; margin-right: 5rem;
+    @media (max-width: 800px) {
+      margin-left: 0rem; margin-right: 0rem;
+    }
+}
+
+dialog:not([open]) {
+  display: none;
+}
+
+.carousel-inner {
+  overflow: hidden;
+  padding: 1rem;
+  margin: -1rem;
+}

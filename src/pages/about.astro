@@ -1,0 +1,12 @@
+---
+import text_logo from "../assets/logo_text.avif";
+import { Image } from 'astro:assets';
+import Navbar from '../components/Navbar.astro';
+---
+<div id="content">
+    <Navbar current="About"/>
+    <div class="transition fg-2">
+        <Image src = {text_logo} alt ="test" class={"centered"}/>
+        we r really cool
+    </div>
+</div>

@@ -1,0 +1,92 @@
+---
+import { getCollection } from 'astro:content';
+import text_logo from "../assets/logo_text.avif";
+import { Image } from 'astro:assets';
+import Navbar from '../components/Navbar.astro';
+const images = await getCollection('home_carousel');
+---
+<div id="content">
+    <Navbar current="Home"/>
+    <div class="transition">
+        <div class="d-flex justify-items-center justify-content-center z-toast" style="margin-bottom: -2rem; margin-top: -1.5rem;"><Image src = {text_logo} alt ="test"/></div>
+        <div id="carouselMultiple" class="carousel slide" data-bs-ends="stop" style=" --carousel-items-gap: 0rem">
+          <div class="d-flex justify-items-center justify-content-center place-items-center">
+              <button class="btn-text fg-2 z-toast" type="button" data-bs-target="#carouselMultiple" data-bs-slide="prev" style="--bs-carousel-control-icon-width: 1rem; margin-right: 1rem; height: 15rem; width: 3rem;">
+                <span class="carousel-icon-prev" aria-hidden="true"></span>
+                <span class="visually-hidden fg-2">Previous</span>
+              </button>
+              <div class="carousel-inner justify-items-center justify-content-center place-items-center">
+                  {images.map((image, index) => (
+                    <button data-bs-toggle="dialog" data-bs-target={"#" + image.id} type="button" class:list={["carousel-item bg-2", {active: index === 0}]} style="padding-bottom: 3rem; padding: 1rem; border-width: 0;"><img src={image.filePath} class="hover-lift w-100 rounded-5" style="aspect-ratio: 1/1; object-fit: cover;"></button>
+                  ))}
+              </div>
+              <button class="btn-text fg-2 z-toast" type="button" data-bs-target="#carouselMultiple" data-bs-slide="next" style="--bs-carousel-control-icon-width: 1rem; margin-left: 1rem; height: 15rem;  width: 3rem;">
+                <span class="carousel-icon-next" aria-hidden="true"></span>
+                <span class="visually-hidden fg-2">Next</span>
+              </button>
+          </div>
+        </div>
+        <div class="d-flex flex-column justify-items-center justify-content-center place-items-center fs-l" style="width: 100%;">
+            <h1 class="fg-2 text-center fs-6xl">Meet Our Team</h1>
+            <p class="fg-2 meet-team">We’re Aftershock 9880, a FIRST Tech Challenge robotics team from Edmonds Heights K-12 in Edmonds, WA. Our team of middle and high school students designs, builds, and programs custom robots. We combine innovation, teamwork, and STEM skills to compete at a high level.
+            </p>
+            
+            <p class="fg-2 meet-team">
+            Beyond the competitions, we’re committed to community outreach and STEM education, sharing the excitement of FIRST robotics programs and raising awareness about the impact of FIRST. From demos and workshops to mentoring younger teams, we strive to inspire the next generation of engineers and problem solvers.
+            </p>
+             
+            <p class="fg-2 meet-team">
+            At our unique alternative learning school, we thrive on hands-on experience, creativity, and collaboration.</p>
+        </div>
+        {images.map(image => (
+          <dialog class="dialog w-fit" id={image.id}>
+            <div class="dialog-header w-100">
+                <h1 class="dialog-title">{image.id.split(".").at(0)?.replaceAll("_"," ")}</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="dialog" aria-label="Close"></button>
+            </div>
+            <div class="dialog-body">
+              <img src={image.filePath}>
+            </div>
+          </dialog>
+        ))}
+        <div class="row row-cols-1 md:row-cols-3 g-4">
+          <div class="col">
+            <div class="card">
+              <img src="src/assets/home_carousel/Demonstration.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="src/assets/home_carousel/Demonstration.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="src/assets/home_carousel/Demonstration.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="src/assets/home_carousel/Demonstration.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="height: 3rem;"/>
+    </div>
+</div>
