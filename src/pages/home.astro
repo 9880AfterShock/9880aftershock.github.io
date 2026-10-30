@@ -43,12 +43,12 @@ const event_photos = await getCollection('event_photos');
         </div>
         {images.map(image => (
           <dialog class="dialog w-fit" id={image.id}>
-            <div class="dialog-header w-100">
+            <div class="dialog-header w-100 ">
                 <h1 class="dialog-title">{image.id.split(".").at(0)?.replaceAll("_"," ")}</h1>
               <button type="button" class="btn-close" data-bs-dismiss="dialog" aria-label="Close"></button>
             </div>
             <div class="dialog-body">
-                <Image src={image.data.image} alt=""/>
+                <Image src={image.data.image} alt="" style={"object-fit: contain; max-width: 80vw; max-height: 80dvh; width: auto; height: auto;"}/>
             </div>
           </dialog>
         ))}
@@ -58,7 +58,7 @@ const event_photos = await getCollection('event_photos');
         <div class="row row-cols-1 md:row-cols-3 g-4" style="margin-left: 5%; margin-right: 5%;">
             {events.map(event => (
               <div class="col">
-                <div class="card">
+                <div class="card hover-lift">
                     <Image src={event_photos.find(image => image.id === event.data.image.id)?.data.image} class="card-img-top" alt={event.data.alt} style="aspect-ratio: 1/1; object-fit: cover; height: 100%;"/>
                 <div class="card-body">
                     <h4 class="card-title fg-1">{event.data.title}</h4>
