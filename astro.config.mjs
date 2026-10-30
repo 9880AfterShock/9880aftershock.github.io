@@ -9,6 +9,4 @@ export default defineConfig({
       plugins: [tailwindcss()],
   },
   integrations: [htmx()],
-  site: "https://9880aftershock.github.io",
-  base: "/official-website",
 });

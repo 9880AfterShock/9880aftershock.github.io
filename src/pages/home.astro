@@ -3,7 +3,8 @@ import { getCollection } from 'astro:content';
 import text_logo from "../assets/logo_text.avif";
 import { Image } from 'astro:assets';
 import Navbar from '../components/Navbar.astro';
-const images = await getCollection('home_carousel');
+const image_data = await getCollection('home_carousel');
+const images = await getCollection('home_carousel_images');
 ---
 <div id="content">
     <Navbar current="Home"/>
@@ -16,7 +17,7 @@ const images = await getCollection('home_carousel');
                 <span class="visually-hidden fg-2">Previous</span>
               </button>
               <div class="carousel-inner justify-items-center justify-content-center place-items-center">
-                  {images.map((image, index) => (
+                  {image_data.map((image, index) => (
                     <button data-bs-toggle="dialog" data-bs-target={"#" + image.id} type="button" class:list={["carousel-item bg-2", {active: index === 0}]} style="padding-bottom: 3rem; padding: 1rem; border-width: 0;"><img src={image.filePath} class="hover-lift w-100 rounded-5" style="aspect-ratio: 1/1; object-fit: cover;"></button>
                   ))}
               </div>
@@ -45,7 +46,7 @@ const images = await getCollection('home_carousel');
               <button type="button" class="btn-close" data-bs-dismiss="dialog" aria-label="Close"></button>
             </div>
             <div class="dialog-body">
-              <img src={image.filePath}>
+                <Image src={image.data.image} alt=""/>
             </div>
           </dialog>
         ))}
