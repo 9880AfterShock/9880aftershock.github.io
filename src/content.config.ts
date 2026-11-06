@@ -54,6 +54,18 @@ export const collections = {
         image: image(),
       }),
   }),
+  sponsor_photos: defineCollection({
+    loader: imageLoader({
+      base: "src/assets/sponsor_photos",
+      dataHandler: ({ filePath }) => ({
+        image: `./${path.basename(filePath)}`,
+      }),
+    }),
+    schema: ({ image }) =>
+      ImageLoaderBaseSchema.extend({
+        image: image(),
+      }),
+  }),
   highlight_photos: defineCollection({
     loader: imageLoader({
       base: "src/assets/highlight_photos",
@@ -73,6 +85,13 @@ export const collections = {
       title: z.string(),
       year: z.string(),
       photo: reference("highlight_photos")
+    })
+  }),
+  sponsors: defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/sponsors" }),
+    schema: z.object({
+      title: z.string(),
+      photo: reference("sponsor_photos")
     })
   }),
   years: years

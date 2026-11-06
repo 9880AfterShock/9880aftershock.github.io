@@ -3,7 +3,7 @@
     --bg-1: #08619c;
     --bg-body: #08619c;
     --border-width: 1;
-    --bg-2: #9ECAE1;
+    --bg-2: #7FBDEB;
     --bg-3: #FFFFFF;
     --fg-3: rgb(208,242,244);
     --fg-1: rgb(255,255,255);
@@ -24,6 +24,23 @@
     font-size: 1.575em;
     // text-transform: uppercase;
     letter-spacing: .1em;
+}
+
+html,body {
+  --s: 3rem; /* control the size*/
+  --c1: #C8E3F7;
+  --c2: #7FBDEB;
+  
+  --c:#0000,var(--c1) .5deg 119.5deg,#0000 120deg;
+  --g1:conic-gradient(from  60deg at 56.25% calc(425%/6),var(--c));
+  --g2:conic-gradient(from 180deg at 43.75% calc(425%/6),var(--c));
+  --g3:conic-gradient(from -60deg at 50%   calc(175%/12),var(--c));
+  background:
+    var(--g1),var(--g1) var(--s) calc(1.73*var(--s)),
+    var(--g2),var(--g2) var(--s) calc(1.73*var(--s)),
+    var(--g3) var(--s) 0,var(--g3) 0 calc(1.73*var(--s)) 
+    var(--c2);
+  background-size: calc(2*var(--s)) calc(3.46*var(--s));
 }
 
 html,
@@ -79,6 +96,76 @@ body::-webkit-scrollbar {
 .mobile {
     @media (min-width: 1381px) {
       display: none;
+    }
+}
+
+.contact-layout {
+  flex-direction: row;
+  border-radius: 1rem;
+  margin: 5rem;
+  @media (max-width: 1343px) {
+    overflow: hidden;
+    flex-direction: column-reverse;
+  }
+
+  @media (min-width: 1343px) {
+    margin-left: 0rem;
+    border-radius: 100rem;
+  }
+}
+
+a {
+    color: #DC8FE3
+}
+
+.sponsor-layout {
+    border-start-end-radius: 100rem;
+    border-end-end-radius: 100rem;
+    padding-right: 3rem;
+    margin-right: 3rem;
+  flex-direction: row;
+
+  @media (max-width: 1343px) {
+    flex-direction: column-reverse;
+  }
+}
+
+.sponsor-layout-reverse {
+    border-start-start-radius: 100rem;
+    border-end-start-radius: 100rem;
+    padding-left: 3rem;
+    margin-left: 3rem;
+  flex-direction: row-reverse;
+
+  @media (max-width: 1343px) {
+    flex-direction: column-reverse;
+  }
+}
+
+.donate-layout {
+  flex-direction: row;
+
+  @media (max-width: 1343px) {
+    flex-direction: column;
+  }
+}
+
+.contact-image {
+    width: 100%;
+    height: auto;
+    @media (min-width: 1342px) {
+        @media (max-width: 1742px) {
+            @media (max-width: 1418px) {
+                max-width: 30rem; 
+                aspect-ratio: 1/1;
+            }
+            max-width: 40rem; 
+            aspect-ratio: 1/1;
+        }
+        max-width: 60rem; 
+        width: 100%; 
+        height: auto;
+        object-fit: cover;
     }
 }
 

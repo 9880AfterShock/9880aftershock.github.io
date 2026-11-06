@@ -1,0 +1,21 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Dramatic from '../assets/dramatic_robot_photo.png';
+import { Image } from 'astro:assets';
+---
+<div id="content">
+    <Navbar current="Donate"/>
+    <div class="transition fg-1 fs-lg">
+        <div class="vstack bg-1" style="margin: 5rem;">
+            <div class = "d-flex donate-layout gap-5 justify-content-center place-items-center">
+                <h1 class = "fs-6xl">Support <br> the team!</h1>
+                <p style="max-width: 50rem; padding: 2rem;">
+                    Aftershock is an independently funded team that relies on fundraising, grants, sponsorships, and individual donations to support our robotics program and community outreach.
+                    Your contributions help us purchase materials and equipment, build and compete with our robots, and expand opportunities for students to explore FIRST and STEM. Every donation, no matter the size, helps us further our mission of making STEM accessible and inspiring the next generation of innovators.
+                    Interested in supporting our team? Consider making a donation through our <a class="fg-1" href="https://givebutter.com/9880-aftershock-systemcore-fundraiser-zu4c0d">fundraising page</a>.
+                </p>
+            </div>
+            <Image src={Dramatic} alt={"Robot so cool!"} style="width: 100%; height: 20rem; object-fit: cover;"/>
+        </div>
+    </div>
+</div>

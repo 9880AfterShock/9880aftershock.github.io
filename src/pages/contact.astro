@@ -1,0 +1,22 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Tiara from '../assets/tiara.jpg';
+import { Image } from 'astro:assets';
+---
+<div id="content">
+    <Navbar current="Contact"/>
+    <div class="transition fg-1 fs-lg">
+        <div class="d-flex contact-layout bg-1 justify-content-stretch">
+            <Image src={Tiara} class="contact-image" alt={"We rock those!"}/>
+            <div class="vstack place-items-center justify-content-center">
+                <h1 class="fs-5xl">Have Questions?</h1>
+                <h1 class="fs-4xl">Contact us</h1>
+                <div style="height: 5rem;"/>
+                <div class="text-center" style="max-width: 40rem; ">
+                    <p>We're always happy to help people learn how to get involved in First programs, share what our team has been up to and our past accomplishments, or provide mentorship to FLL, FTC, and FRC teams.</p>
+                    <p>You can contact us either through our team email <a href="mailto:aftershock9880@gmail.com" class="fg-1">aftershock9880@gmail.com</a> or our phone number <a href="tel:+14256150676" class="fg-1">(425)-615-0676</a>!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
