@@ -14,7 +14,7 @@ import Footer from "../components/Footer.astro";
         <title>Aftershock</title>
     </head>
     <body>
-        <div id="content" hx-get="/home" hx-trigger="load" hx-swap="outerHTML" class="transition">
+        <div id="content" class="transition">
             <Navbar current="Home"/>
             <div style="height: 100vb;"/>
         </div>
@@ -24,5 +24,15 @@ import Footer from "../components/Footer.astro";
 
 <script>
     import "bootstrap/dist/js/bootstrap.bundle.min.js";
-    import "htmx.org";
+    import htmx from "htmx.org";
+
+    const params = new URLSearchParams(window.location.search)
+    const page = params.get("page") || "home"
+    const allowedPages = ["home", "about", "contact"];
+    const selectedPage = allowedPages.includes(page) ? page : "home";
+    console.log(selectedPage)
+    htmx.ajax("GET", '/' + selectedPage, {
+      target: "#content",
+      swap: "outerHTML"
+    });
 </script>
