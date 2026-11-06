@@ -30,13 +30,11 @@ import Footer from "../components/Footer.astro";
         const path = new URL(
             event.detail.xhr.responseURL
         ).pathname;
-        console.log(path);
         history.replaceState(null, "", path);
     });
     const page = window.location.pathname.replace("/","")
-    const allowedPages = ["home", "about", "contact"];
+    const allowedPages = ["home", "about", "contact", "highlights", "donate", "sponsors"];
     const selectedPage = allowedPages.includes(page) ? page : "home";
-    console.log(selectedPage)
     htmx.ajax("GET", '/' + selectedPage, {
       target: "#content",
       swap: "outerHTML"
