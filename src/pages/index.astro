@@ -26,8 +26,14 @@ import Footer from "../components/Footer.astro";
     import "bootstrap/dist/js/bootstrap.bundle.min.js";
     import htmx from "htmx.org";
 
-    const params = new URLSearchParams(window.location.search)
-    const page = params.get("page") || "home"
+    htmx.on("htmx:afterSwap", (event) => {
+        const path = new URL(
+            event.detail.xhr.responseURL
+        ).pathname;
+        console.log(path);
+        history.replaceState(null, "", path);
+    });
+    const page = window.location.pathname.replace("/","")
     const allowedPages = ["home", "about", "contact"];
     const selectedPage = allowedPages.includes(page) ? page : "home";
     console.log(selectedPage)

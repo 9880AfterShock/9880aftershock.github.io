@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 const photos = await getCollection('sponsor_photos');
 const sponsors = await getCollection('sponsors');
+import UrlFixer from '../components/UrlFixer.astro';
 ---
 <div id="content">
     <Navbar current="Sponsors"/>
@@ -24,3 +25,5 @@ const sponsors = await getCollection('sponsors');
         </div>
     </div>
 </div>
+
+<UrlFixer/>

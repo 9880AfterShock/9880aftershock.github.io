@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 const highlights = await getCollection('highlights');
 const photos = await getCollection('highlight_photos');
 const years = await getCollection('years');
+import UrlFixer from '../components/UrlFixer.astro';
 ---
 <div id="content">
     <Navbar current="Highlights"/>
@@ -29,3 +30,5 @@ const years = await getCollection('years');
         }
     </div>
 </div>
+
+<UrlFixer/>

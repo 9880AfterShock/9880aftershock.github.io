@@ -1,0 +1,12 @@
+<script>
+  const pathname = window.location.pathname.replace("/","");
+  if (pathname != "" && !document.getElementById("footer")) {
+    fetch("/")
+        .then(response => response.text())
+        .then(html => {
+          document.open();
+          document.write(html);
+          document.close();
+        });
+  }
+</script>
