@@ -14,9 +14,9 @@ import UrlFixer from '../components/UrlFixer.astro';
           years.toReversed().map(year => (
             <div class="d-flex flex-column justify-content-center place-items-center" style="margin-top: 2rem; margin-bottom: 2rem;">
                 <h1 class="text-center fg-2 fs-5xl">{year.id} Season Highlights</h1>
-                <div class="d-flex gap-12 justify-content-center flex-wrap justify-items-center place-items-center" style="margin: 2rem; width: 100;" >
+                <div class="d-flex gap-12 justify-content-center flex-wrap justify-items-center place-items-center" style="margin: 2rem; width: 100%;" >
                         {highlights.filter(highlight => highlight.data.year == year.id).map(post => (
-                          <div class="vstack bg-1 rounded hover-lift" style="width: 30rem; max-width: 50rem; height: fit-content; overflow: hidden;">
+                          <div class="vstack bg-1 rounded hover-lift highlight" style="width: 30rem; max-width: 50rem; height: fit-content; overflow: hidden;">
                               <Image src={photos.find(photo => post.data.photo.id == photo.id)?.data.image} style="width: 100%; height: auto;" alt=""/>
                               <div class = "p-3">
                                   <h3>{post.data.title}</h3>

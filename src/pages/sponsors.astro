@@ -13,7 +13,7 @@ import UrlFixer from '../components/UrlFixer.astro';
         {
         sponsors.toReversed().map((sponsor, i) => 
                 <div class:list={["d-flex bg-1", (i % 2 == 0) ? "sponsor-layout" : "sponsor-layout-reverse"]} style="margin-top: 2rem; margin-bottom: 2rem;">
-                    <Image src={photos.find(photo => sponsor.data.photo.id == photo.id)?.data.image} alt={"First sponsors woohoo!"} style="width: 100%; height:auto; aspect-ratio: auto;"/>
+                    <Image src={photos.find(photo => sponsor.data.photo.id == photo.id)?.data.image} alt={"First sponsors woohoo!"} style="width: 100%; height:auto; aspect-ratio: auto; object-fit: cover;"/>
                     <div class="vstack place-items-center align-content-center justify-content-center" style="width: 100%;">
                         <h3 class="fs-4xl fw-bold" style="padding: 2rem;">{sponsor.data.title}</h3>
                         <div style="max-width: 80rem; padding: 2rem;">
